@@ -78,19 +78,19 @@ All the text commentary and interpretations land in the JSON report and are call
 After running the full analysis pipeline on Germany (DE), four standalone charts landed in `output/figures/`. Here’s what each one tells us:
 
 1. **Duck Curve Ramp Rate Trends**  
-   ![Duck Curve Trends](output/duck_curve_ramp_rate_trends.png)  
+   ![Duck Curve Trends](notebooks/output/duck_curve_ramp_rate_trends.png)  
    The familiar midday “dip-and-rise” in net load (the duck curve) is getting steeper over time. As solar capacity grows, evening ramp-up rates have climbed significantly—driving home the urgent need for faster-responding reserves or storage to keep the lights on.
 
 2. **Renewable Intermittency Analysis**  
-   ![Renewable Intermittency](output/renewable_intermittency_analysis.png)  
+   ![Renewable Intermittency](notebooks/output/renewable_intermittency_analysis.png)  
    Wind and solar outputs swing unpredictably hour to hour. Some countries (e.g. DE, ES) show much higher volatility and more frequent extreme ramp events than others, demonstrating exactly why grid operators lean on batteries or backup plants when the wind stops or a cloud passes.
 
 3. **ML Demand Forecasting Results**  
-   ![ML Forecasting](output/ml_demand_forecasting_results.png)  
+   ![ML Forecasting](notebooks/output/ml_demand_forecasting_results.png)  
    A Random Forest model nails short-term demand with R²≈0.94 using just lag features and day-of-week. Most of the scatter in the “Actual vs. Predicted” plot happens around peak hours, suggesting those are the toughest times to forecast, and where better real-time data could pay dividends.
 
 4. **Load Profile Clustering**  
-   ![Load Clustering](output/load_profile_clustering.png)  
+   ![Load Clustering](notebooks/output/load_profile_clustering.png)  
    Daily consumption naturally splits into five clusters—think “winter workday,” “summer weekend,” etc. Each cluster has a distinct peak hour, valley hour, and daily range. Utilities can leverage these segments to tailor demand-response or tariff programs to the right customer groups.
 
 > **Run it yourself:** all code lives in the `notebooks/` folder. If you want to verify any of these insights—or drill into another country or time window—just follow the **Getting Started** steps above and let the notebooks do the rest.
