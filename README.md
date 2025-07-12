@@ -34,6 +34,10 @@ This repo walks through a complete exploration of the Open Power System Data “
 opsd\_timeseries\_analysis/
 ├── data/                              # raw OPSD files (git-ignored)
 ├── notebooks/
+|   ├── output/
+|        ├── figures/                   # final PNG charts
+|        └── reports/
+|             └── comprehensive\_energy\_report.json
 │   ├── 01\_download.ipynb              # grabs and unzips the data
 │   ├── 02\_clean\_explore.ipynb         # cleaning, feature engineering, EDA
 │   ├── 04\_advanced\_insights.ipynb     # runs analytics script, writes JSON
@@ -41,10 +45,6 @@ opsd\_timeseries\_analysis/
 ├── src/
 │   ├── opsd\_utils.py                  # data-loading & helper functions
 │   └── advanced\_analytics.py          # builds the JSON report
-├── output/
-│   ├── figures/                       # final PNG charts
-│   └── reports/
-│       └── comprehensive\_energy\_report.json
 ├── environment.yml                    # conda setup
 └── README.md                          # you’re reading it now
 
@@ -54,7 +54,7 @@ opsd\_timeseries\_analysis/
 
 1. **Clone it**  
    ```bash
-   git clone <repo-URL>
+   git clone https://github.com/Ollenmire/opsd_timeseries_analysis.git
    cd opsd_timeseries_analysis
    ```
 
@@ -71,11 +71,11 @@ opsd\_timeseries\_analysis/
    * `04_advanced_insights.ipynb` → generate JSON
    * `05_final_visualizations.ipynb` → export final charts
 
-All the text commentary and interpretations land in the JSON report and are called out in each notebook; the static PNGs live in `output/figures/`.
+All the text commentary and interpretations land in the JSON report and are called out in each notebook; the static PNGs live in `notebooks/output/figures/`.
 
 ## Key Findings
 
-After running the full analysis pipeline on Germany (DE), four standalone charts landed in `output/figures/`. Here’s what each one tells us:
+After running the full analysis pipeline, four standalone charts landed in `notebooks/output/`. Here’s what each one tells us:
 
 1. **Duck Curve Ramp Rate Trends**  
    ![Duck Curve Trends](notebooks/output/duck_curve_ramp_rate_trends.png)  
@@ -85,11 +85,11 @@ After running the full analysis pipeline on Germany (DE), four standalone charts
    ![Renewable Intermittency](notebooks/output/renewable_intermittency_analysis.png)  
    Wind and solar outputs swing unpredictably hour to hour. Some countries (e.g. DE, ES) show much higher volatility and more frequent extreme ramp events than others, demonstrating exactly why grid operators lean on batteries or backup plants when the wind stops or a cloud passes.
 
-3. **ML Demand Forecasting Results**  
+3. **ML Demand Forecasting Results for Germany (DE)**  
    ![ML Forecasting](notebooks/output/ml_demand_forecasting_results.png)  
    A Random Forest model nails short-term demand with R²≈0.94 using just lag features and day-of-week. Most of the scatter in the “Actual vs. Predicted” plot happens around peak hours, suggesting those are the toughest times to forecast, and where better real-time data could pay dividends.
 
-4. **Load Profile Clustering**  
+4. **Load Profile Clustering for Germany (DE)**  
    ![Load Clustering](notebooks/output/load_profile_clustering.png)  
    Daily consumption naturally splits into five clusters—think “winter workday,” “summer weekend,” etc. Each cluster has a distinct peak hour, valley hour, and daily range. Utilities can leverage these segments to tailor demand-response or tariff programs to the right customer groups.
 
